@@ -1,6 +1,8 @@
 package com.westee.wxshop;
 
 import com.westee.wxshop.generate.User;
+import com.westee.wxshop.generate.UserMapper;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,9 @@ public class UserDao {
     }
 
     public void insertUser(User user){
-
+        try(SqlSession sqlSession = sqlSessionFactory.openSession(true)){
+            UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+            mapper.insert(user);
+        }
     }
 }
