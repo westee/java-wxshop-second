@@ -1,30 +1,9 @@
-### 引入依赖
-1. shiro-core
-```xml
-<dependency>
-  <groupId>org.apache.shiro</groupId>
-  <artifactId>shiro-core</artifactId>
-  <version>1.5.3</version>
-</dependency>
-```
-2. shiro-spring
-```xml
-<dependency>
-  <groupId>org.apache.shiro</groupId>
-  <artifactId>shiro-spring</artifactId>
-  <version>1.5.3</version>
-</dependency>
-```
-
-### 添加mybatis配置
-在目录`\src\main\resources\db\mybatis`下创建一个config.xml。
-```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    
+
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
@@ -46,10 +25,3 @@
     </mappers>
 
 </configuration>
-```  
-在目录`\src\main\resources\application.yml`中配置mybatis的配置文件位置。
-
-```yml
-mybatis:
-    config-location:classpath:db/mybatis/mybatis-config.xml
-```

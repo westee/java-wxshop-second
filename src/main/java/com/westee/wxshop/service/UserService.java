@@ -1,7 +1,11 @@
 package com.westee.wxshop.service;
 
-import org.springframework.stereotype.Component;
+import com.westee.wxshop.generate.User;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class UserService {
+    public User createUserIfNotExist(String tel) {
+        return null;
+    }
 }
