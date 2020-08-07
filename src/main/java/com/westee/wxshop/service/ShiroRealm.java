@@ -21,7 +21,7 @@ public class ShiroRealm extends AuthorizingRealm {
         this.setCredentialsMatcher(new CredentialsMatcher() {
             @Override
             public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
-                return token.getCredentials().equals(info.getCredentials());
+                return new String( (char[]) token.getCredentials()).equals(info.getCredentials() );
             }
         });
     }

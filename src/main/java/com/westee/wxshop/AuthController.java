@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("v1.0/api")
 public class AuthController {
     private final AuthService authService;
 
@@ -27,10 +27,11 @@ public class AuthController {
     @PostMapping("/login")
     public void login(@RequestBody TelAndCode telAndCode) {
         UsernamePasswordToken token = new UsernamePasswordToken(telAndCode.getTel(), telAndCode.getCode());
+        token.setRememberMe(true);
         SecurityUtils.getSubject().login(token);
     }
 
-    private class TelAndCode {
+    private static class TelAndCode {
         private String tel;
         private String code;
 
